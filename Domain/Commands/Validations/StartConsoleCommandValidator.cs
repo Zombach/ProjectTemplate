@@ -2,7 +2,7 @@
 
 namespace Domain.Commands.Validations;
 
-public class StartConsoleCommandValidator : AbstractValidator<StartConsoleCommand>
+public class StartConsoleCommandValidator : BaseValidator<StartConsoleCommand>
 {
     public StartConsoleCommandValidator()
     {

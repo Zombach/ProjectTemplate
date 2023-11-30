@@ -1,4 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Application.Common.Behaviours;
+using Domain.Commands.Validations;
+using Domain.Configurations;
+using FluentValidation;
+using Infrastructure.Configurations;
+using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
@@ -18,11 +24,8 @@ public static class DependencyInjectionConfig
             loggingBuilder.AddConsole();
         });
 
-        services.AddMediatR(cfg =>
-        {
-            cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-        });
-
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        
         return services;
     }
 }

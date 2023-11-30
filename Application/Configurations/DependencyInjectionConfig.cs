@@ -1,10 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Application.Common.Behaviours;
+using Domain.Configurations;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Infrastructure.Configurations;
+using Domain.Commands.Validations;
 
 namespace Application.Configurations;
 
@@ -15,14 +17,11 @@ public static class DependencyInjectionConfig
         ArgumentNullException.ThrowIfNull(services, nameof(services));
         ArgumentNullException.ThrowIfNull(configuration, nameof(configuration));
 
-        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddValidatorsFromAssembly(typeof(BaseValidator<>).Assembly);
 
-        services.AddMediatR(cfg =>
-        {
-            cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-            cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-        });
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 
+        services.AddDomainConfiguration();
         services.AddInfrastructureServices(configuration);
 
         return services;

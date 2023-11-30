@@ -1,10 +1,10 @@
-﻿using Domain.Commands;
+﻿using Application.Configurations;
+using Console.Configurations;
+using Domain.Commands;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text;
-using Console.Configurations;
-using Application.Configurations;
 
 #if DEBUG
 args = [];

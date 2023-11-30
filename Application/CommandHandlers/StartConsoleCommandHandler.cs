@@ -2,7 +2,7 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace Application.Commands;
+namespace Application.CommandHandlers;
 
 public class StartConsoleCommandHandler(ISender sender, ILogger<StartConsoleCommandHandler> logger) : IRequestHandler<StartConsoleCommand>
 {

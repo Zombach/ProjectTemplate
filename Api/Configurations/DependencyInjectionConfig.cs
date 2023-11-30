@@ -17,10 +17,7 @@ public static class DependencyInjectionConfig
 
         services.AddSwaggerConfiguration();
 
-        services.AddMediatR(cfg =>
-        {
-            cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-        });
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
         return services;
     }
