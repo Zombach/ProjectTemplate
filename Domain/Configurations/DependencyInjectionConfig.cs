@@ -4,9 +4,9 @@ namespace Domain.Configurations;
 
 public static class DependencyInjectionConfig
 {
-    public static IServiceCollection AddDomainConfiguration(this IServiceCollection services)
+    public static IServiceCollection AddDomainServices(this IServiceCollection services)
     {
-        ArgumentNullException.ThrowIfNull(services, nameof(services));
+        ArgumentNullException.ThrowIfNull(services, nameof(IServiceCollection));
 
         return services;
     }

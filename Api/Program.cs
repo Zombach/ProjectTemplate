@@ -1,4 +1,11 @@
+using System.Text;
 using Api.Configurations;
+
+#if DEBUG
+args = [];
+#endif
+
+Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +17,6 @@ builder.Configuration
 
 builder.Services.AddControllers();
 
-// .NET Native DI Abstraction
 builder.Services.AddDependencyInjectionConfiguration(builder.Configuration);
 
 var app = builder.Build();

@@ -6,8 +6,8 @@ public static class DependencyInjectionConfig
 {
     public static IServiceCollection AddDependencyInjectionConfiguration(this IServiceCollection services, IConfiguration configuration)
     {
-        ArgumentNullException.ThrowIfNull(services, nameof(services));
-        ArgumentNullException.ThrowIfNull(configuration, nameof(configuration));
+        ArgumentNullException.ThrowIfNull(services, nameof(IServiceCollection));
+        ArgumentNullException.ThrowIfNull(configuration, nameof(IConfiguration));
 
         services.AddLogging(loggingBuilder =>
         {

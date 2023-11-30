@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Data.Configurations;
+﻿namespace Infrastructure.Configurations;
 
 public sealed class DatabaseConfig
 {

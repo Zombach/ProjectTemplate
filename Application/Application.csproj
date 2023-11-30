@@ -25,6 +25,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\Kafka.Common\Kafka.Common.csproj" />
+    <ProjectReference Include="..\Redis.Common\Redis.Common.csproj" />
   </ItemGroup>
 
 </Project>

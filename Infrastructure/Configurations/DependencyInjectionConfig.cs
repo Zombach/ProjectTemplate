@@ -1,5 +1,4 @@
-﻿using Infrastructure.Data.Configurations;
-using Infrastructure.Data.Contexts;
+﻿using Infrastructure.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +10,11 @@ public static class DependencyInjectionConfig
 {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
+        ArgumentNullException.ThrowIfNull(services, nameof(IServiceCollection));
+        ArgumentNullException.ThrowIfNull(configuration, nameof(IConfiguration));
+
         var dataBaseConfig = configuration.GetSection(nameof(DatabaseConfig)).GetConfig<DatabaseConfig>();
+        ArgumentNullException.ThrowIfNull(dataBaseConfig, nameof(DatabaseConfig));
 
         services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {

@@ -6,6 +6,6 @@ public class StartConsoleCommandValidator : BaseValidator<StartConsoleCommand>
 {
     public StartConsoleCommandValidator()
     {
-        RuleFor(command => command.Arguments).NotNull().NotEmpty();
+        RuleFor(command => command.Arguments).NotNull();
     }
 }
